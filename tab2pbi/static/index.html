@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tab2PBI · Tableau → Power BI Migration</title>
+  <link rel="stylesheet" href="/ui/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div><span class="eyebrow">MIGRATION ASSURANCE</span><h1>Tableau → Power BI</h1></div>
+      <span id="engine" class="pill">Checking engine…</span>
+    </header>
+    <section class="hero card">
+      <div>
+        <h2>Assess first. Convert deterministically. Review what matters.</h2>
+        <p>Upload a Tableau workbook or datasource. Tab2PBI separates mechanical conversion coverage from items that need engineering judgement.</p>
+      </div>
+      <div class="upload">
+        <input id="file" type="file" accept=".twb,.twbx,.tds,.tdsx" />
+        <div class="actions"><button id="analyse">Analyse</button><button id="migrate" class="primary">Migrate</button></div>
+      </div>
+    </section>
+    <section id="status" class="status"></section>
+    <section id="results" class="results hidden">
+      <div class="grid" id="summary"></div>
+      <div class="card"><h3>Coverage by dimension</h3><div id="dimensions"></div></div>
+      <div class="card"><h3>Review queue</h3><div id="issues"></div></div>
+    </section>
+  </main>
+  <script src="/ui/app.js"></script>
+</body>
+</html>
