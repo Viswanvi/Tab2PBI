@@ -1,7 +1,10 @@
 {
   "name": "tableau-fabric-skills",
   "repository": "https://github.com/Yarbrdab000/tableau-fabric-skills.git",
+  "source_owner": "Yarbrdab000",
   "commit": "6fdb9409ae16fbbfa6c0add123c523620b43193d",
   "component": "skills/tableau-migration",
-  "license": "MIT"
+  "license": "MIT",
+  "provenance_statement": "CLEANROOM.md",
+  "allowed_runtime_origin": true
 }
