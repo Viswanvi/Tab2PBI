@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<workbook>
+  <datasources>
+    <datasource name="federated.1" caption="Sales">
+      <connection class="textscan" />
+      <column name="[Sales]" caption="Sales" datatype="real" role="measure" />
+      <column name="[Profit Ratio]" caption="Profit Ratio" datatype="real" role="measure">
+        <calculation formula="SUM([Profit]) / SUM([Sales])" />
+      </column>
+      <column name="[Running Sales]" caption="Running Sales" datatype="real" role="measure">
+        <calculation formula="RUNNING_SUM(SUM([Sales]))" />
+      </column>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="Sales by Category"><table><pane><mark class="Bar"/><encodings/><filter column="[Category]"/></pane></table></worksheet>
+  </worksheets>
+  <dashboards><dashboard name="Executive"><zones><zone name="1"/><zone name="2"/></zones></dashboard></dashboards>
+  <actions><action name="Filter Action"/></actions>
+</workbook>
