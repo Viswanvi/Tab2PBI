@@ -1,24 +1,22 @@
 # Third-party notices
 
-Tab2PBI's own orchestration code is separate from the optional migration engine.
+Tab2PBI's orchestration, assessment, API, validation envelope, UI and job model are maintained in this repository.
 
-## tableau-fabric-skills
+## Deterministic Tableau → Power BI engine
+
+Tab2PBI uses one pinned external migration engine:
 
 - Upstream: https://github.com/Yarbrdab000/tableau-fabric-skills
+- Source owner: `Yarbrdab000`
 - Component used: `skills/tableau-migration`
 - License reported by upstream: MIT
-- Pinned revision: see `vendor/ENGINE_LOCK.json`
+- Exact revision: see `vendor/ENGINE_LOCK.json`
+- Upstream provenance statement: `CLEANROOM.md`
 
-`python scripts/vendor_engine.py` checks out the exact pinned upstream revision into `vendor/tableau-fabric-skills/`. The upstream `LICENSE`, `THIRD_PARTY_NOTICES.md` and source history remain intact in that checkout.
+The pinned upstream states that `tableau-migration` is an original parser/emitter implementation based on Tableau workbook/datasource XML and Microsoft Power BI/Fabric formats, and that no third-party converter source code was copied into it. Tab2PBI verifies the direct repository origin, exact commit, component path and presence of the upstream provenance statement before accepting the vendored engine.
 
-## Guust Tableau → Power BI migration project
+`python scripts/vendor_engine.py` checks out only the direct audited repository and exact pinned revision into `vendor/tableau-fabric-skills/`. The upstream source, license, notices and provenance documentation remain intact in that checkout. Requests never install or fetch Guust, RAS, Copilot plugins, or migration wrappers.
 
-- Upstream: https://github.com/Guust-Franssens/tableau-to-powerbi-migration
-- Used as an architectural reference for parsing/validation/remediation concepts.
-- Tab2PBI does not require Guust's Copilot CLI agents or plugin runtime.
+## Normal application dependencies
 
-## RAS Tableau Migration Accelerator
-
-- Upstream: https://github.com/rasgiza/tableau-migration-accelerator
-- Used as an architectural reference for deterministic conversion and human-review gates.
-- Tab2PBI does not execute the RAS PowerShell wrapper.
+Tab2PBI also uses standard Python application packages such as FastAPI, Uvicorn, Pydantic and python-multipart. These provide HTTP/API/runtime functionality and do not implement Tableau → Power BI migration logic.
